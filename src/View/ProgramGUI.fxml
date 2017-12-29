@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+            <children>
+                <MenuBar prefHeight="32.0" prefWidth="562.0" AnchorPane.bottomAnchor="468.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Close" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Edit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Delete" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="About" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <Label layoutX="33.0" layoutY="164.0" text="Patient Name:" />
+                <Label layoutX="33.0" layoutY="200.0" text="birthDate:" AnchorPane.bottomAnchor="279.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="465.0" AnchorPane.topAnchor="200.0" />
+                <Label layoutX="33.0" layoutY="129.0" text="Box Year:" AnchorPane.bottomAnchor="350.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="468.0" AnchorPane.topAnchor="129.0" />
+                <Label layoutX="33.0" layoutY="235.0" text="Chart No.:" />
+                <Label layoutX="30.0" layoutY="65.0" prefHeight="21.0" prefWidth="100.0" text="Pre-Input Info:" AnchorPane.bottomAnchor="414.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="432.0" AnchorPane.topAnchor="65.0" />
+                <TextField fx:id="yearParameter" layoutX="211.0" layoutY="124.0" onAction="#setYear" promptText="Input Year" />
+                <TextField fx:id="lastNamePram" layoutX="211.0" layoutY="159.0" onAction="#setLastName" prefHeight="31.0" prefWidth="140.0" promptText="Last Name" AnchorPane.bottomAnchor="310.0" AnchorPane.leftAnchor="211.0" AnchorPane.rightAnchor="211.0" AnchorPane.topAnchor="159.0" />
+                <TextField fx:id="birthdayPram" layoutX="211.0" layoutY="195.0" onAction="#setBirthday" promptText="Input Birthday" AnchorPane.bottomAnchor="274.0" AnchorPane.leftAnchor="211.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="195.0" />
+                <TextField fx:id="chartNoPram" layoutX="211.0" layoutY="230.0" onAction="#setChartNo" promptText="Input Chart No." />
+                <RadioButton fx:id="XRay" layoutX="31.0" layoutY="319.0" mnemonicParsing="false" onAction="#obtainRadioGroup" text="X-Ray" />
+                <RadioButton fx:id="Casts" layoutX="31.0" layoutY="353.0" mnemonicParsing="false" onAction="#obtainRadioGroup" text="Casts" />
+                <RadioButton fx:id="Files" layoutX="31.0" layoutY="384.0" mnemonicParsing="false" onAction="#obtainRadioGroup" text="Record Files" />
+                <TextField fx:id="preInputField" layoutX="211.0" layoutY="60.0" onAction="#setPreInputField" promptText="Input Pre-Input Info" />
+                <Button fx:id="renameButton" layoutX="461.0" layoutY="441.0" mnemonicParsing="false" onAction="#renameButtonPressed" text="Rename" />
+                <TextField fx:id="firstNamePram" layoutX="387.0" layoutY="159.0" onAction="#setFirstName" prefHeight="31.0" prefWidth="116.0" promptText="First Name" />
+                <Button fx:id="clearFolder" layoutX="339.0" layoutY="441.0" mnemonicParsing="false" onAction="#clearFolderPressed" text="ClearFolder" />
+            </children></AnchorPane>
+    </children>
+</GridPane>
