@@ -1,25 +1,32 @@
 package Model;
 
+import Controller.SaveLocationController;
+import Model.Dialogues.PopUpDialog;
+
 import java.io.File;
 
 public class StoringLocation {
 
+    private static StoringLocation instance;
     private String path;
     private File folder;
 
-    public StoringLocation() {
-        path = "C:/Users/user/Desktop/TESTS/";
-        // why is it that i will get a null here
-        // if I put the folder stuff in the make new Folder?
+    private StoringLocation(String inputPath) {
+        setPath(inputPath);
         folder = new File(path);
-        // Temporarily holding info on "M:/X-RAY RENAMING/"
+        makeNewFolder();
     }
 
-    public StoringLocation(String specifiedLocation) {
-        path = specifiedLocation;
+    public static StoringLocation StoringSingleton() {
+        if (instance == null) {
+            instance = new StoringLocation(SaveLocationController.getPath());
+            return instance;
+        } else {
+            return instance;
+        }
     }
 
-    // Effects: Creates new folder. If duplicates happen it doesn't create new folder
+
     public void makeNewFolder() {
 
         if (new File(path).exists()) {
@@ -27,8 +34,10 @@ public class StoringLocation {
         } else {
             try {
                 new File(path).mkdirs();
+                new PopUpDialog("Folder created.");
             } catch (Exception e) {
-                System.out.println("Error in creating folder");
+                new PopUpDialog("Error in creating folder, please manually create folder with format : \n" +
+                        "Rename");
             }
         }
 
@@ -41,4 +50,14 @@ public class StoringLocation {
     public File getFolder() {
         return folder;
     }
+
+    private void setPath(String newPath) {
+        path = newPath;
+    }
+
+    public void deletePreviousSaveInstance(){
+        instance=null;
+    }
+
+
 }

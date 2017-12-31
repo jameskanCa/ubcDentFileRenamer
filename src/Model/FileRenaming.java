@@ -1,47 +1,27 @@
 package Model;
 
+import Model.Dialogues.PopUpDialog;
+
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.*;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 
 public class FileRenaming {
-    private StoringLocation storingLocation;
-    private FileFormatting fileFormatting;
-
-    private String TruncatedFileName;
-    private String PreInputName;
-    private boolean condition;
-
-    public FileRenaming(String Year, String lName, String fName, String birthDate, String ChartNo, Boolean status) {
-        storingLocation = new StoringLocation();
-        fileFormatting = new FileFormatting(Year, lName, fName, birthDate, ChartNo);
-        this.condition = status;
-
-        this.TruncatedFileName = fileFormatting.setTruncatedName(condition);
-        peformSeriesRename(this.TruncatedFileName);
-    }
-
-
-    public FileRenaming(String PreinputFile) {
-        storingLocation = new StoringLocation();
-        this.PreInputName = PreinputFile;
-        fileFormatting.setTrucatedPreInput(condition, this.PreInputName);
-        peformSeriesRename(TruncatedFileName);
-    }
 
     public void peformSeriesRename(String name) {
-
         try {
-            File[] listOfFiles = storingLocation.getFolder().listFiles();
+            File[] listOfFiles = StoringLocation.StoringSingleton().getFolder().listFiles();
 
             for (int i = 0; i < listOfFiles.length; i++) {
 
                 if (listOfFiles[i].isFile()) {
-                    String fileNum = Integer.toString(i + 1);
 
-                    Path movefrom = FileSystems.getDefault().getPath(storingLocation.getPath() + listOfFiles[i].getName());
-                    Path target = FileSystems.getDefault().getPath(storingLocation.getPath() + name + fileNum + ".jpg");
-                    System.out.println("Item Renamed" + (i + 1));
+                    String fileNum = Integer.toString(i + 1);
+                    Path movefrom = FileSystems.getDefault().getPath(StoringLocation.StoringSingleton().getPath() + listOfFiles[i].getName());
+                    Path target = FileSystems.getDefault().getPath(StoringLocation.StoringSingleton().getPath() + name + fileNum + ".jpg");
 
                     try {
                         Files.move(movefrom, target, StandardCopyOption.REPLACE_EXISTING);
@@ -50,52 +30,25 @@ public class FileRenaming {
                     }
 
                 } else {
-                    System.out.println("Error ");
+                    new PopUpDialog("Renaming has encountered issue");
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Unable to obtain previous files");
+            new PopUpDialog("Unable to obtain previous files");
         }
-
 
     }
 
-    public boolean clearAndReplaceFolder() {
-        boolean success = false;
+    public void formPatientFolder(String folderFormat) {
 
-        File[] listOfFiles = storingLocation.getFolder().listFiles();
-
-        for (int i = 0; i < listOfFiles.length; i++) {
-
-            if (listOfFiles[i].isFile()) {
-
-                Path delete = FileSystems.getDefault().getPath(storingLocation.getPath() + listOfFiles[i].getName());
-
-                try {
-                    Files.delete(delete);
-                    success = true;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                System.out.println("Deletion error");
+            try {
+                new File(StoringLocation.StoringSingleton().getPath() + folderFormat).mkdirs();
+                new PopUpDialog("Folder created.");
+            } catch (Exception e) {
+                new PopUpDialog("Error in creating folder, please manually create folder with format : \n" +
+                        "Rename");
             }
         }
 
-        try {
-            Files.delete(FileSystems.getDefault().getPath(storingLocation.getPath()));
-
-        } catch (NoSuchFileException x) {
-            System.err.format("%s: no such" + " file or directory%n", "");
-        } catch (DirectoryNotEmptyException x) {
-            System.err.format("%s not empty%n");
-        } catch (IOException x) {
-            System.err.println(x);
-        }
-
-        storingLocation.makeNewFolder();
-
-        return success;
     }
-}

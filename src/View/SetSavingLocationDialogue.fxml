@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SaveLocationController">
+   <children>
+      <Button fx:id="useNewLocation" layoutX="406.0" layoutY="258.0" mnemonicParsing="false" onAction="#saveButton" text="Use New Location" />
+      <Label layoutX="39.0" layoutY="190.0" text="Save Location:" />
+      <TextField fx:id="pathText" layoutX="158.0" layoutY="185.0" onAction="#setSaveLocation" prefHeight="31.0" prefWidth="405.0" text="C:/Users/user/Desktop/Rename/" />
+   </children>
+</AnchorPane>

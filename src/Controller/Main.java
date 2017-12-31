@@ -1,7 +1,6 @@
 package Controller;
 
-import Model.ProgramMessages.PopUpDialog;
-import Model.StoringLocation;
+import Model.Dialogues.StoringDialogue;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,20 +11,19 @@ import javafx.stage.Stage;
 Programmed by James Kan
 */
 public class Main extends Application {
-    StoringLocation storingLocation;
     private static Stage primaryStage;
 
     public static void main(String[] args) {
         launch(args);
     }
 
-    // Method override allows for behaviour prior to GUI execution.
     @Override
-    public void init() throws Exception {
-        storingLocation = new StoringLocation();
-        storingLocation.makeNewFolder();
-        super.init();
+    public void stop() throws Exception {
+
+        super.stop();
     }
+
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -38,9 +36,16 @@ public class Main extends Application {
         primaryStage.setMinHeight(535);
         primaryStage.setMinWidth(562);
         primaryStage.show();
+
+        new StoringDialogue();
+
     }
 
     public static Stage getPrimaryStage(){
         return primaryStage;
     }
+
+
+
+
 }
