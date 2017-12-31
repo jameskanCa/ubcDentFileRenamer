@@ -38,6 +38,7 @@ public class FileRenaming {
             new PopUpDialog("Unable to obtain previous files");
         }
 
+
     }
 
     public void formPatientFolder(String folderFormat) {
