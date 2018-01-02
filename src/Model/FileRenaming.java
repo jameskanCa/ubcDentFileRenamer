@@ -11,7 +11,7 @@ import java.nio.file.StandardCopyOption;
 
 public class FileRenaming {
 
-    public void peformSeriesRename(String name) {
+    public void peformSeriesRename(String name, int condition) {
         try {
             File[] listOfFiles = StoringLocation.StoringSingleton().getFolder().listFiles();
 
@@ -21,7 +21,13 @@ public class FileRenaming {
 
                     String fileNum = Integer.toString(i + 1);
                     Path movefrom = FileSystems.getDefault().getPath(StoringLocation.StoringSingleton().getPath() + listOfFiles[i].getName());
-                    Path target = FileSystems.getDefault().getPath(StoringLocation.StoringSingleton().getPath() + name + fileNum + ".jpg");
+
+                    Path target;
+                    if(condition == 0){
+                         target = FileSystems.getDefault().getPath(StoringLocation.StoringSingleton().getPath() + name + fileNum + ".pdf");
+                    }else{
+                         target = FileSystems.getDefault().getPath(StoringLocation.StoringSingleton().getPath() + name + fileNum + ".jpg");
+                    }
 
                     try {
                         Files.move(movefrom, target, StandardCopyOption.REPLACE_EXISTING);

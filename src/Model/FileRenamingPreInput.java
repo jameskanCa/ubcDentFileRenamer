@@ -10,6 +10,6 @@ public class FileRenamingPreInput extends FileRenaming{
         fileFormatting = new FileFormatting(preInputInfo);
         this.condition = status;
         this.patientInfo = fileFormatting.setTrucatedPreInput(condition, preInputInfo);
-        peformSeriesRename(patientInfo);
+        peformSeriesRename(patientInfo,status);
     }
 }

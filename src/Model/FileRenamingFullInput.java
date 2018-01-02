@@ -13,7 +13,7 @@ public class FileRenamingFullInput extends FileRenaming{
         folderInfo = fileFormatting.folderFormat();
         this.condition = status;
         this.patientInfo = fileFormatting.setTruncatedName(condition);
-        peformSeriesRename(patientInfo);
+        peformSeriesRename(patientInfo,condition);
         formPatientFolder(folderInfo);
     }
 
