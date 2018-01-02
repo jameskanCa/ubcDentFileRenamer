@@ -23,12 +23,10 @@ public class Main extends Application {
         super.stop();
     }
 
-
-
     @Override
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
-        Parent  root = FXMLLoader.load(getClass().getResource("../View/ProgramGUI.fxml"));
+        Parent  root = FXMLLoader.load(getClass().getResource("/View/ProgramGUI.fxml"));
         primaryStage.setTitle("UBC Dentistry File Renaming Program");
         primaryStage.setScene(new Scene(root, 562, 500));
         primaryStage.setMaxHeight(535);
@@ -44,8 +42,4 @@ public class Main extends Application {
     public static Stage getPrimaryStage(){
         return primaryStage;
     }
-
-
-
-
 }
