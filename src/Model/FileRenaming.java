@@ -48,10 +48,8 @@ public class FileRenaming {
     }
 
     public void formPatientFolder(String folderFormat) {
-
             try {
                 new File(StoringLocation.StoringSingleton().getPath() + folderFormat).mkdirs();
-                new PopUpDialog("Folder created.");
             } catch (Exception e) {
                 new PopUpDialog("Error in creating folder, please manually create folder with format : \n" +
                         "Rename");
