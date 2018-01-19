@@ -10,10 +10,11 @@ import javafx.stage.Stage;
 public class AboutDialogue {
 
     final String message= "Programmed by James Kan \n" +
-            "Version 1 \n" +
-            "Updated: 2017/12/30";
+            "Version 1.3 \n" +
+            "Updated: 2018/1/19 \n" +
+            "For inquiries or bugs please email: james0077721@hotmail.com";
 
-
+    // Constructor to open dialogue that displays the about page when drop down about is clicked.
     public AboutDialogue() {
         final Stage dialogStage = new Stage();
         dialogStage.initModality(Modality.APPLICATION_MODAL);

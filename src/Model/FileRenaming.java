@@ -11,9 +11,17 @@ import java.nio.file.StandardCopyOption;
 
 public class FileRenaming {
 
+    // Method renames all files within folder. Obtains number of files in folder, and renames each file to the
+    // patient format expected at UBC Dentistry. Utilizes the condition to determine file type and name for the
+    // renaming information.
     public void peformSeriesRename(String name, int condition) {
+
         try {
             File[] listOfFiles = StoringLocation.StoringSingleton().getFolder().listFiles();
+
+            if(listOfFiles.length <= 0){
+                new PopUpDialog("Heads up, your folder is empty!");
+            }
 
             for (int i = 0; i < listOfFiles.length; i++) {
 
@@ -47,6 +55,7 @@ public class FileRenaming {
 
     }
 
+    // Takes Pre-Formatted style and creates folder for each patient dependent on the type of file.
     public void formPatientFolder(String folderFormat) {
             try {
                 new File(StoringLocation.StoringSingleton().getPath() + folderFormat).mkdirs();

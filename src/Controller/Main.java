@@ -9,6 +9,12 @@ import javafx.stage.Stage;
 
 /*
 Programmed by James Kan
+Last Update: 01/19/2018
+Program Description:
+At UBC Dentistry, patient records over the past 40 years are to be digitized into digital records,
+as mandated by the Canadian government. To speed up the process of manual labour, the task of naming hundreds of scanned
+files and pictures can be renamed using this program. The program was implemented in Jan 3rd and has been in use by
+employees for the purpose of digitizing the files within the safe and secure networks of UBC Dentistry servers.
 */
 public class Main extends Application {
     private static Stage primaryStage;

@@ -1,16 +1,20 @@
 package Model;
 
 import Model.Dialogues.PopUpDialog;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 
 public class FolderReplacement {
 
+    // Folder replacement in case computer system does not replace the folder.
     public FolderReplacement() {
 
         File[] listOfFiles = StoringLocation.StoringSingleton().getFolder().listFiles();
+
+        if(listOfFiles.length <= 0){
+            new PopUpDialog("Heads up, your folder is already empty!");
+        }
 
         for (int i = 0; i < listOfFiles.length; i++) {
 

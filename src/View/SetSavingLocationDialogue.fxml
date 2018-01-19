@@ -11,5 +11,6 @@
       <Button fx:id="useNewLocation" layoutX="406.0" layoutY="258.0" mnemonicParsing="false" onAction="#saveButton" text="Use New Location" />
       <Label layoutX="39.0" layoutY="190.0" text="Save Location:" />
       <TextField fx:id="pathText" layoutX="158.0" layoutY="185.0" onAction="#setSaveLocation" prefHeight="31.0" prefWidth="405.0" text="C:/Users/user/Desktop/Rename/" />
+      <Label layoutX="153.0" layoutY="128.0" text="Please follow the format of ....Destination/Rename/ " />
    </children>
 </AnchorPane>

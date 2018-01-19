@@ -13,6 +13,7 @@ public class FileFormatting {
     private final String missingBirthdate = "missingbirthdate";
     private final String missingChartNo = "missingchartno";
 
+    // Constructor assigns all necessary variables.
     public FileFormatting(String Year, String lName, String fName, String birthDate, String ChartNo) {
         this.Year = Year;
         patientFirstName = fName;
@@ -39,6 +40,7 @@ public class FileFormatting {
         return preInputInfo;
     }
 
+    // Sets name format if they are missing any information and fills it with preformatted inputs.
     public String setTruncatedName(int status) {
         if (status == 0 || status == 1) {
             if (birthDate.equals("")) {
@@ -69,10 +71,21 @@ public class FileFormatting {
 
 
 
+    // Formats patient folder to based on type values
+    // 0  -  Records
+    // 1  -  X-Rays
+    // 2  -  Casts
+    public String folderFormat(int type){
+        String folderTitle;
 
-    public String folderFormat(){
-       String folderTitle = Year + bar + patientLastName + "," + patientFirstName +
-                bar + birthDate + bar + chartNo;
+        if(type == 2){
+            folderTitle = Year + bar + patientLastName + "," + patientFirstName +
+                    bar + chartNo;
+        }else {
+            folderTitle = Year + bar + patientLastName + "," + patientFirstName +
+                    bar + birthDate + bar + chartNo;
+        }
+
 
         return folderTitle;
     }
