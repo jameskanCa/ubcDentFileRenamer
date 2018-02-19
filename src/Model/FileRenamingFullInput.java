@@ -11,10 +11,10 @@ public class FileRenamingFullInput extends FileRenaming{
     public FileRenamingFullInput(String Year, String lName, String fName, String birthDate, String ChartNo, int status) {
 
         fileFormatting = new FileFormatting(Year, lName, fName, birthDate, ChartNo);
-        folderInfo = fileFormatting.folderFormat(status);
         this.condition = status;
         this.patientInfo = fileFormatting.setTruncatedName(condition);
         peformSeriesRename(patientInfo,condition);
+        folderInfo = fileFormatting.folderFormat(status);
         formPatientFolder(folderInfo);
     }
 
