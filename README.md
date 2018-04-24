@@ -1,0 +1,2 @@
+# ubcDentFileRenamer
+Application Written for UBC Dentistry. Program designed to rename 1000+ patient records. Developed outside of work time to help simplify and speed up the renaming process of dental patient records and casts records in a secure local manner. The program takes the files and renames all items placed inside of the "Rename" folder according to record type, and places them inside of folders that the program makes. 
