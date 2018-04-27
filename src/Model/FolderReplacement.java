@@ -1,6 +1,6 @@
 package Model;
 
-import Model.Dialogues.PopUpDialog;
+import Model.Dialogues.PopUpDialogue;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
@@ -13,7 +13,7 @@ public class FolderReplacement {
         File[] listOfFiles = StoringLocation.StoringSingleton().getFolder().listFiles();
 
         if(listOfFiles.length <= 0){
-            new PopUpDialog("Heads up, your folder is already empty!");
+            new PopUpDialogue("Heads up, your folder is already empty!");
         }
 
         for (int i = 0; i < listOfFiles.length; i++) {
@@ -27,14 +27,14 @@ public class FolderReplacement {
                     e.printStackTrace();
                 }
             } else {
-                new PopUpDialog("One or more files were unable to be deleted!");
+                new PopUpDialogue("One or more files were unable to be deleted!");
             }
         }
 
         if (listOfFiles.length == 0) {
             System.out.println("Deletion Successful");
         } else {
-            new PopUpDialog("The folder is NOT empty. Engage in attempt to create replacement folder.");
+            new PopUpDialogue("The folder is NOT empty. Engage in attempt to create replacement folder.");
             folderReplacement();
         }
     }

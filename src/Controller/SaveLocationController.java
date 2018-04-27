@@ -25,10 +25,12 @@ public class SaveLocationController {
         return path;
     }
 
+    
+
     @FXML
     void saveButton(){
         setSaveLocation();
-        StoringLocation.StoringSingleton();
         StoringDialogue.closeStoringDialogue();
+        StoringLocation.StoringSingleton();
     }
 }

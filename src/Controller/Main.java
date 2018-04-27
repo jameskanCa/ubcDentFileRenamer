@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /*
@@ -33,16 +34,24 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
         Parent  root = FXMLLoader.load(getClass().getResource("/View/ProgramGUI.fxml"));
+        primaryStage.getIcons().add(new Image("Images/icon.png"));
         primaryStage.setTitle("UBC Dentistry File Renaming Program");
         primaryStage.setScene(new Scene(root, 562, 500));
         primaryStage.setMaxHeight(535);
         primaryStage.setMaxWidth(562);
         primaryStage.setMinHeight(535);
         primaryStage.setMinWidth(562);
+
+
+        new StoringDialogue(this);
+
+
+
+    }
+
+    // Allows for the demonstration of one screen in use at a time.
+    public static void setVisible(){
         primaryStage.show();
-
-        new StoringDialogue();
-
     }
 
     public static Stage getPrimaryStage(){

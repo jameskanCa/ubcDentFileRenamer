@@ -4,7 +4,7 @@ import Model.FileRenamingFullInput;
 import Model.FileRenamingPreInput;
 import Model.FolderReplacement;
 import Model.Dialogues.AboutDialogue;
-import Model.Dialogues.PopUpDialog;
+import Model.Dialogues.PopUpDialogue;
 import Model.Dialogues.StoringDialogue;
 import Model.StoringLocation;
 import javafx.fxml.FXML;
@@ -64,7 +64,7 @@ public class Controller {
             new StoringDialogue();
         } catch (Exception e) {
             e.printStackTrace();
-            new PopUpDialog("Error with opening new save location dialogue. Please restart the program.");
+            new PopUpDialogue("Error with opening new save location dialogue. Please restart the program.");
         }
     }
 
@@ -138,14 +138,14 @@ public class Controller {
             if (!Year.isEmpty() && !patientFirstName.isEmpty() && !patientLastName.isEmpty()) {
                 rename = new FileRenamingFullInput(Year, patientLastName, patientFirstName, birthdate, ChartNo, styleSelection);
             } else {
-                new PopUpDialog("Inputs required are Missing!");
+                new PopUpDialogue("Inputs required are Missing!");
             }
         } else {
             if (!Year.isEmpty() && !patientFirstName.isEmpty() && !patientLastName.isEmpty() && birthdate.isEmpty() &&
                     !ChartNo.isEmpty()) {
                 rename = new FileRenamingFullInput(Year, patientLastName, patientFirstName, birthdate, ChartNo, styleSelection);
             } else {
-                new PopUpDialog("Birth date may not be empty or missing info.");
+                new PopUpDialogue("Birth date may not be empty or missing info.");
             }
         }
     }
@@ -157,7 +157,7 @@ public class Controller {
         if (!PreInputField.isEmpty()) {
             renamePreInput = new FileRenamingPreInput(PreInputField, styleSelection);
         } else {
-            new PopUpDialog("Pre-input slot is empty");
+            new PopUpDialogue("Pre-input slot is empty");
         }
     }
 

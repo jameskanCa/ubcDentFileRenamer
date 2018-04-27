@@ -1,7 +1,7 @@
 package Model;
 
 import Controller.SaveLocationController;
-import Model.Dialogues.PopUpDialog;
+import Model.Dialogues.PopUpDialogue;
 
 import java.io.File;
 
@@ -38,9 +38,9 @@ public class StoringLocation {
         } else {
             try {
                 new File(path).mkdirs();
-                new PopUpDialog("Folder created.");
+                new PopUpDialogue("Folder created.");
             } catch (Exception e) {
-                new PopUpDialog("Error in creating folder, please manually create folder with format : \n" +
+                new PopUpDialogue("Error in creating folder, please manually create folder with format : \n" +
                         "Rename/");
             }
         }

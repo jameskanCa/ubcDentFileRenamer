@@ -1,6 +1,6 @@
 package Model;
 
-import Model.Dialogues.PopUpDialog;
+import Model.Dialogues.PopUpDialogue;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,7 +20,7 @@ public class FileRenaming {
             File[] listOfFiles = StoringLocation.StoringSingleton().getFolder().listFiles();
 
             if(listOfFiles.length <= 0){
-                new PopUpDialog("Heads up, your folder is empty!");
+                new PopUpDialogue("Heads up, your folder is empty!");
             }
 
             for (int i = 0; i < listOfFiles.length; i++) {
@@ -44,12 +44,12 @@ public class FileRenaming {
                     }
 
                 } else {
-                    new PopUpDialog("Renaming has encountered issue");
+                    new PopUpDialogue("Renaming has encountered issue");
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
-            new PopUpDialog("Unable to obtain previous files");
+            new PopUpDialogue("Unable to obtain previous files");
         }
 
 
@@ -60,7 +60,7 @@ public class FileRenaming {
             try {
                 new File(StoringLocation.StoringSingleton().getPath() + folderFormat).mkdirs();
             } catch (Exception e) {
-                new PopUpDialog("Error in creating folder, please manually create folder with format : \n" +
+                new PopUpDialogue("Error in creating folder, please manually create folder with format : \n" +
                         "Rename");
             }
         }
